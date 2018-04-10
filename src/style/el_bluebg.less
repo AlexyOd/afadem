@@ -1,0 +1,43 @@
+.bluebg{
+	background: @teambg;
+	margin-top: (0/@bfz)*1em;
+	margin-bottom: (0/@bfz)*1em;
+	position: relative;
+	z-index: 5;
+	&_head, &_footer{
+		background-size: 100% 100%;
+		
+		background-repeat: no-repeat;
+		position: absolute;
+		width: 100%;
+
+	}
+	&_head{
+		height: (188/@bfz)*1em;
+		bottom: 100%;
+		background-image: url(../img/cut/btop.png);
+		background-position: bottom;
+	}
+	&_footer{
+		height: (83/@bfz)*1em;
+		top: 100%;
+		background-image: url(../img/cut/bbott.png);
+		background-position: top;
+	}
+	&_cont{
+		position: relative;
+		top: -(90/@bfz)*1em;
+	}
+	&_dec{
+		position: absolute;	
+		&-1{
+			left: (90/@bfz)*1em;
+		}
+		&-2{
+			z-index: 3;
+			right: (90/@bfz)*1em;
+			bottom: -(80/@bfz)*1em;
+			
+		}
+	}
+}

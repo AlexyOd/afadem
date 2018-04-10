@@ -1,0 +1,41 @@
+.rev{
+	margin-bottom: (230/@bfz)*1em;
+	position: relative;
+	&_head, &_footer{
+		background-size: 100% 100%;
+		
+		background-repeat: no-repeat;
+		position: absolute;
+		width: 100%;
+
+	}
+	&_cont{
+		background: url(../img/cut/rev_cont.jpg);
+		background-size: 100% 100%;
+		
+	}
+	&_head{
+		height: (50/@bfz)*1em;
+		bottom: 100%;
+		background-image: url(../img/cut/rev_top.png);
+		background-position: bottom;
+	}
+	&_footer{
+		height: (311/@bfz)*1em;
+		top: 100%;
+		background-image: url(../img/cut/rev_footer.png);
+		background-position: top;
+	}
+	&_el{
+		transform: scale(.8);
+
+	}
+	.slick-active &_el{
+		transform: scale(1);
+	}
+	.slick{
+		&-list{
+			/* overflow: visible; */
+		}
+	}
+}

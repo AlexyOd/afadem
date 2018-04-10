@@ -123,4 +123,6 @@ $.prototype.myoutube = function(obj){
 	return player;
 }
 
- 
+/*Slick.prototype.test = function(){
+	debugger
+}*/

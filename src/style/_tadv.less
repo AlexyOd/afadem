@@ -1,0 +1,58 @@
+.tadv{
+	&_el{
+		max-width: (270/@bfz)*1em;
+		width: auto;
+		margin: auto;
+		margin-bottom: -(90/@bfz)*1em;
+	}
+	&_top{
+		@thiscolor:@tadvcol1;
+		border: (15/@bfz)*1em @thiscolor solid;
+		border-radius: 50%;
+		position: relative;
+		background: @white;
+		img{
+			width: 100%;
+		}
+		i{
+			text-align: center;
+			@tfz:80;
+			font-size:(@tfz/@bfz)*1em ;
+			display: block;
+			.ACenter;
+			/* width: (80/@tfz)*1em; */
+			height: (80/@tfz)*1em;
+			line-height: 1;
+			color: @thiscolor;
+		}
+	}
+	[class^="col-"]:nth-child(2) &_top{
+		@thiscolor:@tadvcol2;
+		border: (15/@bfz)*1em @thiscolor solid;
+		i{
+			color: @thiscolor;
+		}
+	}
+	[class^="col-"]:nth-child(3) &_top{
+		@thiscolor:@tadvcol3;
+		border: (15/@bfz)*1em @thiscolor solid;
+		i{
+			color: @thiscolor;
+		}
+	}
+	[class^="col-"]:nth-child(4) &_top{
+		@thiscolor:@tadvcol4;
+		border: (15/@bfz)*1em @thiscolor solid;
+		i{
+			color: @thiscolor;
+		}
+	}
+}
+
+@media @phone-max{
+	.tadv{
+		&_el{
+			margin: auto;
+		}
+	}
+}

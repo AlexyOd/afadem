@@ -7,8 +7,13 @@
 .icon-location:before { content: '\e805'; } /* '' */
 .icon-home:before { content: '\e806'; } /* '' */
 .icon-clock-1:before { content: '\e807'; } /* '' */
+.icon-zoom-in:before { content: '\e808'; } /* '' */
+.icon-star:before { content: '\f005'; } /* '' */
+.icon-lemon:before { content: '\f094'; } /* '' */
 .icon-facebook:before { content: '\f09a'; } /* '' */
 .icon-mail-alt:before { content: '\f0e0'; } /* '' */
+.icon-smile:before { content: '\f118'; } /* '' */
+.icon-rocket:before { content: '\f135'; } /* '' */
 .icon-angle-circled-left:before { content: '\f137'; } /* '' */
 .icon-angle-circled-right:before { content: '\f138'; } /* '' */
 .icon-youtube-play:before { content: '\f16a'; } /* '' */

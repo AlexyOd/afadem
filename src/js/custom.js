@@ -140,6 +140,88 @@ $(function(){
 			}
 		}]
 	})
+	$('.galery_slider').slick({
+		appendArrows: $('.galery .slider-btn'),
+		appendDots: $('.galery .slider-dots'),
+		prevArrow: '<button class="slick-prev slick-arrow" aria-label="Previous" type="button"> <i class="icon-angle-circled-left"></i> </button>',
+		nextArrow: '<button class="slick-next slick-arrow" aria-label="Next" type="button"> <i class="icon-angle-circled-right"></i> </button>',
+		//autoplay: false,
+		//autoplaySpeed: 3000,
+		centerMode: true,
+		centerPadding: '0px',
+		cssEase: 'ease',
+		customPaging: function(slider, i) {
+			return '';
+		},
+		dots: true,
+		swipeToSlide: true,
+		slidesToShow: 3,
+		responsive: [
+		{
+			breakpoint: display,
+			settings: {
+				
+			}
+		},
+		{
+			breakpoint: tablet,
+			settings: {
+				slidesToShow: 2,
+			}
+		},
+		{
+			breakpoint: phone,
+			settings: {
+				slidesToShow: 1,
+			}
+		}]
+	});
+	var rev =$('.rev_slider');
+	rev.on('init', function(event, slick,currentSlide){
+		console.log('init')
+	}).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+		console.log('beforeChange')
+	}).on('swipe',function(event, slick, currentSlide, nextSlide){
+		console.log('swipe')
+	}).on('swipeEnd',function(event, slick, currentSlide, nextSlide){
+		console.log('swipeEnd')
+	}).on('swipeMove',function(event, slick, currentSlide, nextSlide){
+		console.log('swipeMove')
+	}).on('swipeStart',function(event, slick, currentSlide, nextSlide){
+		console.log('swipeStart')
+	});
+
+	
+	
+	
+	rev.slick({
+		arrows: false,
+		centerMode: true,
+		slidesPerRow: 1,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		centerPadding: '20%',
+		responsive: [
+		{
+			breakpoint: display,
+			settings: {
+				
+			}
+		},
+		{
+			breakpoint: tablet,
+			settings: {
+				
+			}
+		},
+		{
+			breakpoint: phone,
+			settings: {
+				
+			}
+		}]
+	});
+	
 	$('.nap_slider').slick({
 		arrows: false,
 		asNavFor: $('.nap_dotsslider'),
@@ -209,127 +291,149 @@ $(function(){
 		$(this).toggleClass('active');
 		$('.header_bcont-list').toggleClass('active');
 	});
-/*
-
-Я тут сделал динамический слайдер, идея такова у слика есть возможность добавлять слайды, 
-а у нас тут куча видосов, которые не хорошо сразу подгружать... 
-вот я и начал думать о том как бы сделать так, чтобы подгрузать видосы 
-только тогда когда к ним обратятся, да еще и при этом не перегружать слайдер по 100 раз.
-Итак ниже будет описания всему этому аду
-
-*/
-$('.hor-large').slick({
-	asNavFor: $('.hor-min'),
-	infinite:false,
-	arrows:false,
 	/*
-	тут просто по дефолту обьявляем слайдер
+
+	Я тут сделал динамический слайдер, идея такова у слика есть возможность добавлять слайды, 
+	а у нас тут куча видосов, которые не хорошо сразу подгружать... 
+	вот я и начал думать о том как бы сделать так, чтобы подгрузать видосы 
+	только тогда когда к ним обратятся, да еще и при этом не перегружать слайдер по 100 раз.
+	Итак ниже будет описания всему этому аду
+
 	*/
-})
-
-
-/*
-Все ниже перечисленные методы для '.hor-min' должны быть обьявлены до того как обьявится сам слайдер 
-https://github.com/kenwheeler/slick/issues/1005
-*/
-
-
-$('.hor-min').on('init', function(event, slick,currentSlide){
-	/*
-	выстреливает после того как слайдер подгрузился.
-	я хотел сразу добовлять видос тут, но нельзя так как метод срабатывает до того как 
-	/www.youtube.com/iframe_api подгружается, а значит нам нужно первый видос подгружать после загрузки все страници
-	в методе mready;
-
-	Значит просто добавим слайд
-	*/
-	var id = 'lslide-'+slick.options.initialSlide, obj = '<div> <img src="img/vgal-samp.jpg" class="sample" alt="" /> <div  id="'+id+'" class="yvid"></div> </div>';
-	$('.hor-large').slick('slickAdd',obj); 
-	/*метод который просто добавляет слайд в слайдер*/
-}).on('beforeChange', function(event, slick, currentSlide, nextSlide){
-	/*
-	Эта проверочка нужна для того чтобы выключать видео которое сейчас играет перед тем
-	как переключить слайд. Но метод stopVideo может не отработать так как если юзер нажмет два раза на 
-	кнопку next и видос не успеет прогрузится - выйдет ошибка 
-	Я долго искал как проверять есть ли там у нас обьект или нет, единственное что я нашел это проверить "A"
-	*/
-	if(gplayer[currentSlide].A){
-		gplayer[currentSlide].stopVideo();
-	}
-	/*
-	Проверяем, есть ли у нас уже такое видео, чтобы не добовлять одно и тоже видео в слайдер. С начало я хотел проверять 
-	по id сладера large? но потом подумал что могу просто добвлять классы yt-done и проверять их наличие 
-	*/
-	if(!$(slick.$slides[nextSlide]).hasClass('yt-done')){
-		/*создание слайда*/
-		var id = 'lslide-'+nextSlide, obj = '<div> <img src="img/vgal-samp.jpg" class="sample" alt="" /> <div  id="'+id+'" class="yvid"></div> </div>';
-		/*запись слайда*/
-		$('.hor-large').slick('slickAdd',obj);
-		/*запиливаем видос и вносим в массив видеозаписей*/
-		gplayer.push($(slick.$slides[nextSlide]).find('[data-yid]').myoutube(id));
-		/*добавляем класс для проверки */
-		$(slick.$slides[nextSlide]).addClass('yt-done');
-	}
-	$('.hor-large').slick('slickGoTo',nextSlide);
-})
-$('.hor-min').slick({
-	appendArrows: $('.hor-min_cont'),
-	arrows: true,
-	asNavFor: $('.hor-large'),
-	prevArrow: '<button class="slick-prev slick-arrow" aria-label="Previous" type="button"> <img src="img/arw_left.png" alt="" /> </button>',
-	nextArrow: '<button class="slick-next slick-arrow" aria-label="Next" type="button"> <img src="img/arw_right.png" alt="" /> </button>',
-	autoplay: false,
-	autoplaySpeed: 3000,
-	centerMode: true,
-	centerPadding: '90px',
-		/*onInit: function() {
-
-		},*/
-		responsive: [
-		{
-			breakpoint: display,
-			settings: {
-
-			}
-		},
-		{
-			breakpoint: tablet,
-			settings: {
-
-			}
-		},
-		{
-			breakpoint: phone,
-			settings: {
-
-			}
-		}]
+	$('.hor-large').slick({
+		asNavFor: $('.hor-min'),
+		infinite:false,
+		arrows:false,
+		/*
+		тут просто по дефолту обьявляем слайдер
+		*/
 	})
 
-$('.js-popup').click(function(event) {
-	$('.popup').toggleClass('active');
-	$(this).toggleClass('active');
-});
-$('.popup').click(function(event) {
-	var r = $(this).closest( event.target).length;
-	if(r){
+
+	/*
+	Все ниже перечисленные методы для '.hor-min' должны быть обьявлены до того как обьявится сам слайдер 
+	https://github.com/kenwheeler/slick/issues/1005
+	*/
+
+
+	$('.hor-min').on('init', function(event, slick,currentSlide){
+		/*
+		выстреливает после того как слайдер подгрузился.
+		я хотел сразу добовлять видос тут, но нельзя так как метод срабатывает до того как 
+		/www.youtube.com/iframe_api подгружается, а значит нам нужно первый видос подгружать после загрузки все страници
+		в методе mready;
+
+		Значит просто добавим слайд
+		*/
+		var id = 'lslide-'+slick.options.initialSlide, obj = '<div> <img src="img/vgal-samp.jpg" class="sample" alt="" /> <div  id="'+id+'" class="yvid"></div> </div>';
+		$('.hor-large').slick('slickAdd',obj); 
+		/*метод который просто добавляет слайд в слайдер*/
+	}).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+		/*
+		Эта проверочка нужна для того чтобы выключать видео которое сейчас играет перед тем
+		как переключить слайд. Но метод stopVideo может не отработать так как если юзер нажмет два раза на 
+		кнопку next и видос не успеет прогрузится - выйдет ошибка 
+		Я долго искал как проверять есть ли там у нас обьект или нет, единственное что я нашел это проверить "A"
+		*/
+		if(gplayer[currentSlide].A){
+			gplayer[currentSlide].stopVideo();
+		}
+		/*
+		Проверяем, есть ли у нас уже такое видео, чтобы не добовлять одно и тоже видео в слайдер. С начало я хотел проверять 
+		по id сладера large? но потом подумал что могу просто добвлять классы yt-done и проверять их наличие 
+		*/
+		if(!$(slick.$slides[nextSlide]).hasClass('yt-done')){
+			/*создание слайда*/
+			var id = 'lslide-'+nextSlide, obj = '<div> <img src="img/vgal-samp.jpg" class="sample" alt="" /> <div  id="'+id+'" class="yvid"></div> </div>';
+			/*запись слайда*/
+			$('.hor-large').slick('slickAdd',obj);
+			/*запиливаем видос и вносим в массив видеозаписей*/
+			gplayer.push($(slick.$slides[nextSlide]).find('[data-yid]').myoutube(id));
+			/*добавляем класс для проверки */
+			$(slick.$slides[nextSlide]).addClass('yt-done');
+		}
+		$('.hor-large').slick('slickGoTo',nextSlide);
+	})
+	$('.hor-min').slick({
+		appendArrows: $('.hor-min_cont'),
+		arrows: true,
+		asNavFor: $('.hor-large'),
+		prevArrow: '<button class="slick-prev slick-arrow" aria-label="Previous" type="button"> <img src="img/arw_left.png" alt="" /> </button>',
+		nextArrow: '<button class="slick-next slick-arrow" aria-label="Next" type="button"> <img src="img/arw_right.png" alt="" /> </button>',
+		autoplay: false,
+		autoplaySpeed: 3000,
+		centerMode: true,
+		centerPadding: '90px',
+			/*onInit: function() {
+
+			},*/
+			responsive: [
+			{
+				breakpoint: display,
+				settings: {
+
+				}
+			},
+			{
+				breakpoint: tablet,
+				settings: {
+
+				}
+			},
+			{
+				breakpoint: phone,
+				settings: {
+
+				}
+			}]
+		})
+
+	$('.js-popup').click(function(event) {
 		$('.popup').toggleClass('active');
-		$('.js-popup.active').removeClass('active');
-	}
-});
+		$(this).toggleClass('active');
+	});
+	$('.popup').click(function(event) {
+		var r = $(this).closest( event.target).length;
+		if(r){
+			$('.popup').toggleClass('active');
+			$('.js-popup.active').removeClass('active');
+		}
+	});
 
-$('.footer_btn').click(function(event) {
-	$(this).toggleClass('active');
-	if($(this).hasClass('active')){
-		$('#footerhidder').show('300');
-	}
-	else
-	{
-		$('#footerhidder').hide('300');
-	}
-});
-
-
+	$('.footer_btn').click(function(event) {
+		$(this).toggleClass('active');
+		if($(this).hasClass('active')){
+			$('#footerhidder').show('300');
+		}
+		else
+		{
+			$('#footerhidder').hide('300');
+		}
+	});
+	$('.galery_el').click(function(event) {
+		var src = this.dataset.large || ($(this).find('[data-large]')[0]?$(this).find('[data-large]')[0].dataset.large : false);
+		console.log(this)
+		if(src)
+		{
+			$('.galery-popup').addClass('active');
+			var img = document.createElement('img');
+			img.src = src;
+			$('.galery-popup img')[0].src = img.src;
+		}
+		else
+		{
+			$(this).addClass('noimg');
+		}
+	});
+	$('.galery-popup').click(function(event) {
+		/* Act on the event */
+		var index = $('.galery-popup').closest(event.target).index();
+		console.log(index);
+		if(index>0){
+			$('.galery-popup').removeClass('active')
+			$('.galery-popup img')[0].src='../img/loader.gif';
+		}
+	});
 });
 
 var handler = function(){
