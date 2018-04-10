@@ -1,4 +1,5 @@
 .news{
+	@namesize:34;
 	position: relative;
 	z-index: 2;
 	padding-bottom: 	(20/@bfz)*1em;
@@ -22,7 +23,7 @@
 		}
 	}
 	&_name{
-		font-size: (34/@bfz)*1em;
+		font-size: (@namesize/@bfz)*1em;
 		line-height: 1.2;
 		.ad;
 		margin-bottom: 0;	
@@ -39,7 +40,6 @@
 		.med;
 	}
 	&_text{
-		font-size: 16px;
 		@tfz:16;
 		font-size:(@tfz/@bfz)*1em ;
 		line-height: (24/@tfz);
@@ -89,6 +89,25 @@
 		margin-bottom: (75/@bfz)*1em;
 		
 		
+	}
+	&_single{
+		background: @light;
+	}
+	&_single &{
+		&_name
+		{margin-bottom: (20/@namesize)*1em;}
+		&_text{
+			height: auto;	
+			text-align: justify;
+			img{
+				width: auto;
+				max-width: 	100%;
+				margin: (15/@bfz)*1em auto;	
+				border-radius: (4/@bfz)*1em;
+				overflow: hidden;
+				display: 	block;	
+			}
+		}
 	}
 }
 
