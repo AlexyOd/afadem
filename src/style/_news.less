@@ -1,0 +1,108 @@
+.news{
+	position: relative;
+	z-index: 2;
+	padding-bottom: 	(20/@bfz)*1em;
+	&_cont{
+		background: @light;
+	}
+	&_footer{
+		top: 100&;
+		position: absolute;
+		left: 0;
+		right: 0;
+		height: (174/@bfz)*1em;
+		background-image: url(../img/cut/news_btm.png);
+		background-repeat: no-repeat;
+	}
+	&_photo{
+		border-radius: (3/@bfz)*1em;
+		overflow: hidden;
+		img{
+			width: 100%;
+		}
+	}
+	&_name{
+		font-size: (34/@bfz)*1em;
+		line-height: 1.2;
+		.ad;
+		margin-bottom: 0;	
+
+
+
+	}
+	&_time{
+		@tfz:12;
+		font-size:(@tfz/@bfz)*1em ;
+		line-height: (16/@tfz);
+		color: @dtime;
+		.got;
+		.med;
+	}
+	&_text{
+		font-size: 16px;
+		@tfz:16;
+		font-size:(@tfz/@bfz)*1em ;
+		line-height: (24/@tfz);
+		.got;
+		color: @tcolor;
+		margin: (27/@tfz)*1em 0;
+		height: (114/@tfz)*1em;
+		overflow: hidden;
+		p{
+			
+
+		}
+	}
+	&_ls,&_rs{
+		display: inline-block;
+		vertical-align: top;
+
+	}
+	&_left{
+		padding-left: (6/@bfz)*1em;	
+	}
+	&_ls{
+		width: 40%;
+		margin-left: -(6/@bfz)*1em;	
+	}
+	&_rs{
+		width: 60%;
+		padding: 0 (30/@bfz)*1em;
+	}
+	&_btn{
+		/* font-size: (18/@bfz)*1em; */
+		@tfz:18;
+		font-size:(@tfz/@bfz)*1em ;
+		
+		margin: 0;	
+		/* margin-top: 1; */
+		background: transparent;
+		color: @blue;
+		padding: (7/@tfz)*1em 0;
+		line-height: 1;	
+		&:hover{
+			color: @white;
+			background: @blue;
+		}
+	}
+	&_el{
+		margin-bottom: (75/@bfz)*1em;
+		
+		
+	}
+}
+
+@media @phone-max{
+	.news{
+		&_el{
+			max-width: (320/@bfz)*1em;
+			margin: (20/@bfz)*1em auto;
+		}
+		&_rs,&_ls{
+			display: block;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+		}
+	}
+}

@@ -1,0 +1,50 @@
+.iblk{
+	position: relative;
+	z-index: 3;
+	&_head{
+		background-size: 100% 100%;
+		background-image: url(../img/cut/form_top.png);
+		background-repeat: no-repeat;
+		position: absolute;
+		width: 100%;
+		height: (76/@bfz)*1em;
+		position: absolute;
+		bottom: 100%;
+
+	}
+	&_bg{
+		background-image: url(../img/cut/form_bg.jpg);
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+		padding: (39/@bfz)*1em 0;
+		padding-bottom: 10%;
+	}
+	&_h1{
+		color: @phcolor;
+	}
+}
+
+@media @desktop-max{
+	.iblk{
+		&_bg{
+			padding: (24/@bfz)*1em 0;
+			padding-bottom: 10%;
+		}
+	}
+} 
+
+
+@media @tablet-max{
+	.iblk{
+		font-size: (8/@tabfz)*1em;
+		&_bg{
+			padding-bottom: 10%;
+		}
+	}
+}
+@media @phone-max{
+	.iblk_bg{
+		background-size: 100% 200%;
+		padding-bottom: (100/@bfz)*1em;
+	}
+}

@@ -1,0 +1,121 @@
+.vslider{
+	position: relative;
+	&-slick{
+		width: 100%;
+	}
+	&_slide{
+	}
+	&_el{
+		width: 100%;
+		transform: scale(1);
+		position: relative;	
+		z-index: 1;
+		opacity: .3;
+		box-shadow: 0 0 0 0 rgba(34, 94, 170, 0.19);
+		transition: opacity .3s, transform .3s,box-shadow.3s; 
+		&:after{
+			.ACenter;
+			z-index: 2;
+			content: '';
+			display: block;
+			width: 100%;
+			height: 100%;
+			border: 0 solid @white;
+			transition: border-width .3s;
+		}
+	}
+	.slick-current &{
+		&_el{
+			transform: scale(1.6);
+			z-index: 4;
+			opacity: 1;
+			box-shadow: 0 0 (115/@bfz)*1em 0 rgba(34, 94, 170, 0.19);
+			img{
+				width: 100%;
+			}
+			&:after{
+				border-width: (10/@bfz)*1em;
+			}
+		}
+	}
+	.slick{
+		&-list{
+			margin-left: -(300/@bfz)*1em;
+			margin-right: -(300/@bfz)*1em;
+			padding-left: (300/@bfz)*1em!important;
+			padding-right: (300/@bfz)*1em!important;
+			padding-top: 34%!important;
+			padding-bottom: 34%!important;
+		}
+		&-arrow{
+			opacity: .5;
+			@tfz:@slict-arrow-fz;
+			font-size:(@tfz/@bfz)*1em ;
+			position: absolute;
+			right: -(110/@tfz)*1em;
+			top: auto;
+			bottom: auto;
+			left: auto;
+			z-index: 3;
+			width: (24/@tfz)*1em;
+			height: (42/@tfz)*1em;
+			padding: 0;
+			transition: opacity .3s;
+			&:hover{
+				opacity: 1;
+			}
+			img{
+				vertical-align: top;
+			}
+		}
+		&-next{
+			bottom: 0;
+		}
+		&-prev{
+			top: 0;
+		}
+	}
+}
+
+
+@media @phone-max{
+	.vslider{
+		padding: (50/@bfz)*1em 0;
+		.slick{
+			&-list{
+				margin-left: 0;
+				margin-right: 0;
+				padding-left: 0!important;
+				padding-right: 0!important;
+				margin-top: -50px!important;
+				margin-bottom: -50px!important;
+				padding-top: 50px!important;
+				padding-bottom: 50px!important;
+
+			}
+			&-arrow{
+				right: 0;
+			}
+		}
+		&_el{
+			width: 100%;
+			max-width: 100%;
+			margin: auto;
+			display: block;
+			transform: scale(.5);
+		}
+
+		.slick-current &{
+			&_el{
+				transform: scale(1);
+				z-index: 4;
+				opacity: 1;
+				box-shadow: 0 0 (115/@bfz)*1em 0 rgba(34, 94, 170, 0.19);
+				&:after{
+					border-width: (10/@bfz)*1em;
+				}
+			}
+		}
+
+	}
+}

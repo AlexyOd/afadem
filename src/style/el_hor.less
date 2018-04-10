@@ -1,0 +1,135 @@
+.t-youtube{
+}
+
+.hor{
+	&-large{
+		position: relative;
+		z-index: 1;
+		.slick{
+			&-slide{
+				/* padding-bottom: 50%; */
+				background: url(../img/loader.gif);
+				background-position: center;
+				background-repeat: no-repeat;
+				width: 	100%;
+				position: relative;
+				border-radius: 	(4/@bfz)*1em;
+				overflow: hidden;
+				border: (2/@bfz)*1em solid @white;
+				box-shadow: 0px 0px (115/@bfz)*1em 0px fade(@phcolor,19%);
+				opacity: 0;
+				transition: opacity .3s;
+
+				iframe{
+					.ACenter();	
+					width: 100%;
+					height: 100%;
+				}
+				
+			}
+			&-current{
+				opacity: 1;
+			}
+			&-list{
+				padding-top:(115/@bfz)*1em!important;
+				padding-bottom:(115/@bfz)*1em!important;
+				padding-left:(115/@bfz)*1em!important;
+				padding-right:(115/@bfz)*1em!important;
+				margin-top: -(115/@bfz)*1em;
+				margin-bottom: -(115/@bfz)*1em;
+				margin-left: -(115/@bfz)*1em;
+				margin-right: -(115/@bfz)*1em;
+			}
+		}
+	}
+	&-min{
+		width: 70%;
+		margin: 0 auto;
+		display: inline-block;
+		vertical-align: middle;
+		position: relative;
+		z-index: 2;
+		&_slide{
+			background: @hmicol;
+			border-radius: (4/@bfz)*1em;
+			overflow: hidden;
+			position: relative;
+			z-index: 1;
+			transform:scale(1);
+			box-shadow: 0px 0px 0 0px fade(@phcolor,19%);
+			transition:box-shadow .3s, transform .3s;
+		}
+		.slick-current& {
+			&_slide{
+				background: @white;
+				z-index: 2;
+				box-shadow: 0px 0px (115/@bfz)*1em 0px fade(@phcolor,19%);
+				border-radius: (4/@bfz)*1em;
+				overflow: hidden;
+				transform:scale(1.3);
+			}
+		}
+		.slick-current &
+		{
+			&_el{
+				border: (2/@bfz)*1em solid @white;
+			}
+		}
+		&_el{
+			opacity: .5;
+			border: (0/@bfz)*1em solid @white;
+		}
+		&_cont{
+			max-width: 100%;
+			text-align: center;
+			.slick{
+				&-slide{
+					img{
+						width: 	100%;
+					}
+				}
+				&-list{
+					padding-top:(115/@bfz)*1em!important;
+					padding-bottom:(115/@bfz)*1em!important;
+					margin-top: -(115/@bfz)*1em;
+					margin-bottom: -(115/@bfz)*1em;
+					padding-left: 24%!important;
+					padding-right: 24%!important;
+				}
+				&-arrow{
+					@tfz:@slict-arrow-fz;
+					width: 13%;
+					height: (26/@tfz)*1em;	
+					position: relative;
+					display: inline-block;
+					padding: 0;	
+					vertical-align: middle;
+					opacity: .5;
+					transition: opacity .3s;
+
+					img{
+						max-width: 100%;
+						width: auto;	
+						vertical-align: top;
+					}
+					&:hover{
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+@media @phone{
+	.hor{
+		&-min{
+		/* width:  */
+		}
+		&_cont{
+			font-size: (10/@bfz)*1em;
+		}
+	}
+}

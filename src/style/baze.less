@@ -1,0 +1,69 @@
+/*MAIN STYLES*/
+body{
+  padding: 0px;
+  margin: 0px;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+}
+*:before,*:after{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.main-wrapper {
+  padding: 0 0 0 0;
+  min-width: 320px;
+  position: relative;
+  overflow: hidden;
+  min-height: 100%;
+}
+
+/* loader */
+.icon-load {
+  background: url(../img/loader.gif) no-repeat;
+  background-color:#fff;
+  background-position: 50%;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top:  0px;
+  left:   0px;
+  right:  0px;
+  bottom: 0px;
+  display: none;
+  z-index: 1000;
+}
+.loaded .icon-load {
+  display: block;
+}
+/*CONTENT*/
+.content {
+  width: 100%;
+  min-width: 320px;
+  text-align: left;
+  min-height: 100vh;
+}
+/*HEADER*/
+header {
+  width: 100%;
+  min-width: 320px;
+  text-align: left;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  z-index: 10;
+}
+/*FOOTER*/
+footer{
+  text-align:left;
+  left:0px; bottom:0px;
+  width:100%;
+  min-width: 320px;
+  position: absolute;
+}

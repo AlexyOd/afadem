@@ -1,0 +1,102 @@
+.popup{
+	.ACenter(@position: fixed);
+	z-index: 	100;
+	background: fade(@phcolor,80);
+	text-align: center;
+	.va-middle;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity .3s,visibility .3s;
+	&.active{
+		opacity: 1;
+		visibility: visible;
+	}
+	&_wind{
+		padding: (30/@bfz)*1em;
+		.middler;
+		width: (554/@bfz)*1em;	
+		background: @light;
+		max-width: 90%;
+		box-shadow: (12.5/@bfz)*1em (21.651/@bfz)*1em (90/@bfz)*1em 0 fade(@wshad,40);
+		border-radius: (4/@bfz)*1em;
+		position: relative;
+		overflow: hidden;
+		max-height: 100vh;
+		&-cont{
+			position: relative;	
+			z-index: 2;
+			max-height: 100vh
+		}
+
+	}
+	&_dec{
+		position: absolute;
+		z-index: 1;
+		&-1{
+			top: (5/@bfz)*1em;	
+			left: (5/@bfz)*1em;	
+		}
+		&-2{
+			bottom:(5/@bfz)*1em;
+			right: (5/@bfz)*1em;
+		}
+	}
+	&_h1{
+		.ad;
+		text-transform: uppercase;
+		color: @tcolor;
+		@tfz:36;
+		font-size:(@tfz/@bfz)*1em ;
+		
+		margin-bottom: (20/@tfz)*1em ;
+	}
+	&_input{
+		display: 	block;	
+		width: 	100%;
+		background: @white;
+		border: (1/@bfz)*1em solid @bord;
+		border-radius: 	(60/@bfz)*1em;
+		padding: (15/@bfz)*1em (30/@bfz)*1em;
+		margin: (20/@bfz)*1em 0;	
+
+		.img,.input{
+			display: 	inline-block;
+			width: auto;	
+			vertical-align: middle;
+		}
+		img{
+			width: (30/@bfz)*1em;	
+		}
+		.input{
+			width: 100%;	
+			margin-left: -(35/@bfz)*1em;	
+			padding-left: (35/@bfz)*1em;
+		}
+		input{
+			color: @tcolor;
+			.ad;
+			font-size: (24/@bfz)*1em;
+			background: transparent;
+			border: none;
+			box-shadow: none;
+			width: 	100%;
+			
+
+		}
+	}
+	&_btn{
+		@tfz:24;
+		font-size:(@tfz/@bfz)*1em ;
+		text-transform: uppercase;
+		width: (300/@tfz)*1em;
+		max-width: 	100%;
+		background: @white;
+		color: @blue;
+		margin-top: (43/@tfz)*1em;	
+		&:hover{
+			background: @blue;
+			color: @white;
+
+		}
+	}
+}

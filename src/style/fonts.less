@@ -1,0 +1,42 @@
+@Black:900;
+@Bold:700;
+@ExtraBold:800;
+@ExtraLight:200;
+@Light:300;
+@Medium:500;
+@Normal:400;
+@SemiBold:600;
+@Thin:100;
+@bold:@Bold;
+@black:@Black;
+@light:@Light;
+@semibold:@SemiBold;
+@semilight:@ExtraLight;
+//.font(@fontname:'Muller',@fontpath:"../font/Muller" , @fontpref:"Black",@fweight:900,@fital:normal);
+
+.Black,.black{font-weight: @Black }
+.Bold,.bold{font-weight: @Bold }
+.ExtraBold,.ebold{font-weight: @ExtraBold }
+.ExtraLight,.elight,.semilight{font-weight: @ExtraLight }
+.Light,.light{font-weight: @Light }
+.Medium,.med{font-weight: @Medium }
+.Normal,.normal{font-weight: @Normal }
+.SemiBold,.sbold,.semibold{font-weight: @SemiBold }
+.Thin,.thin{font-weight: @Thin }
+.italic{font-style: italic;}
+
+.font(@fontname:'Adigiana2',@fontpath:"../font/" , @fontpref:"",@fweight:@Normal,@fital:normal);
+.font(@fontname:'GothamPro',@fontpath:"../font/" , @fontpref:"Regular",@fweight:@Normal,@fital:normal);
+.font(@fontname:'MuseoSansCyrl',@fontpath:"../font/" , @fontpref:"-700",@fweight:@bold,@fital:normal);
+.ad{
+	font-family:'Adigiana2';
+	
+}
+
+.got{
+	font-family:'GothamPro';
+}
+.mes{
+	font-family:'MuseoSansCyrl';
+}
+

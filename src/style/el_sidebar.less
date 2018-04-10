@@ -1,0 +1,47 @@
+.sidebar{
+	max-width: (330/@bfz)*1em;
+	margin: auto;	
+	&_el{
+		padding-left: (6/@bfz)*1em;
+		margin:(20/@bfz)*1em 0;
+	}
+	&_h1{
+		@tfz:24;
+		font-size:(@tfz/@bfz)*1em ;
+		color: @tcolor;
+		line-height: 1.2;
+		.ad;
+	}
+	&_img{
+		border-radius: (3/@bfz)*1em;
+		overflow: hidden;
+		width: 26%;
+		margin-left: -(6/@bfz)*1em;
+		img{
+			width: 	100%;
+		}
+	}
+	&_text{
+		width: 74%;
+		padding-left: (15/@bfz)*1em;	
+		padding-right: (15/@bfz)*1em;	
+	}
+	&_img,	&_text{
+		display: 	inline-block;
+		vertical-align: top;
+	}
+	&_name{
+		@tfz:18;
+		font-size:(@tfz/@bfz)*1em;
+		color: @tcolor;
+		line-height: (16/@tfz);
+		.ad;
+		&:hover{
+			text-decoration: underline;
+			color: @blue;
+		}
+		 
+
+	}
+
+}

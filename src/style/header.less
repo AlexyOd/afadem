@@ -1,0 +1,322 @@
+.header{
+	background: @white;
+	&_lcont{
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		background: @white;
+		box-shadow: 0 0 (5/@bfz)*1em 0 fade(@blackc,40);
+	}
+	&_tcont{
+		background: @blue;
+		position: relative;
+	}
+	&_logo{
+		padding-top: (7/@bfz)*1em;
+		width: (96/@bfz)*1em;
+		text-align: center;
+		margin: auto;
+		margin-bottom: -(17/@bfz)*1em;
+		display: block;
+		position: relative;
+		z-index: 2;
+		img{
+			width: (61/@bfz)*1em;
+			display: block;
+			margin: 0 auto;
+		}
+		&-mod{
+			width: 90%;
+			img {
+				width: 100%;
+				margin-top: 0px;
+				margin-bottom: (11/@bfz)*1em;
+			}
+		}
+		p{
+			.ad;
+			color: @pink;
+			font-size: (22.46/@bfz)*1em;
+			line-height: 1;
+			margin-bottom: 0;
+		}
+
+	}
+	&_coner{
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 100%;
+		width: 100%;
+		margin-top: -(4/@bfz)*1em;
+		z-index: 1;
+	}
+	&_tlink{
+		color: @white;
+		@tfz:15;
+		font-size:(@tfz/@bfz)*1em ;
+		
+		.mes;
+		.bold;
+		line-height: 1.2;
+		text-align: center;
+		
+		white-space: nowrap;
+		border-bottom: (1/@tfz)*1em solid transparent;
+		transition: border-color .3s;
+		&:hover{
+			color: @white;
+			border-bottom: (1/@tfz)*1em solid @white;
+		}
+		
+	}
+	&_top{
+		&-list{
+			width: 100%;
+			display: inline-block;
+			padding: (15/@bfz)*1em 0;
+			margin: 0;
+			margin-right: -(100/@bfz)*1em;
+			padding-right: (100/@bfz)*1em;
+		}
+		&-item{
+			width: 33%;
+			display: inline-block;
+			text-align: center;
+		}
+	}
+	&_bcont{
+		position: relative;
+		/* background: @white; */
+		border-top: (3/@bfz)*1em solid @lblue;
+		&-list{
+			display: block;
+			padding: 0;
+			margin: 0;
+			position: relative;
+			z-index: 1;
+			margin-right: -(15/@bfz)*1em;
+		}
+		&-item{
+			display: inline-block;
+			width: (115/@bfz)*1em;
+			text-align: center;
+			margin-left: -(4/@bfz)*1em;
+
+			position: relative;
+			z-index: 1;
+			&:after{
+				transition: opacity .3s;
+				opacity: 0;
+				content: '';
+				display: block;
+				z-index: -1;
+				background: rgb(235,235,235);
+				background: -moz-linear-gradient(top, rgba(235,235,235,1) 0%, rgba(255,255,255,1) 100%);
+				background: -webkit-linear-gradient(top, rgba(235,235,235,1) 0%,rgba(255,255,255,1) 100%);
+				background: linear-gradient(to bottom, rgba(235,235,235,1) 0%,rgba(255,255,255,1) 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebebeb', endColorstr='#ffffff',GradientType=0 );
+				.ACenter();
+			}
+			&:hover,&.active{
+				&:after{opacity: 1;}
+
+			}
+		}
+	}
+	&_blink{
+		text-align: center;
+		display: block;
+		width: 100%;
+		@tfz:18;
+		font-size:(@tfz/@bfz)*1em ;
+		padding: (7/@tfz)*1em 0;
+		border-top: (3/@tfz)*1em solid @red;
+		line-height: 1.2;
+		color: @tcolor;
+		margin-top: -(3/@tfz)*1em;
+		&:hover{
+			color: @tcolor;
+		}
+
+		.ad;
+	}
+	&_bcont-item:nth-child(2n) &_blink{
+		border-color: @orange
+	}
+	&_bcont-item:nth-child(3n) &_blink{
+		border-color: @yellow
+	}
+	&_bcont-item:nth-child(4n) &_blink{
+		border-color: @green
+	}
+	&_bcont-item:nth-child(5n) &_blink{
+		border-color: @llblue
+	}
+	&_bcont-item:nth-child(6n) &_blink{
+		border-color: @dlblue
+	}
+	&_bcont-btn{
+		display: none;
+		width: 100%;
+	}
+	&_btn{
+		width:( 40/@bfz)*1em;
+		height:( 24/@bfz)*1em;
+		margin:(10/@bfz)*1em 0;
+		padding-left:( 5/@bfz)*1em;
+		padding-right:( 5/@bfz)*1em;
+		position: relative;
+		background: transparent;
+		border: (2/@bfz)*1em solid transparent;
+		border-width: (2/@bfz)*1em;
+		box-shadow: none;
+		span{
+			display: block;
+			background: @blackc;
+			border-radius: (3/@bfz)*1em;
+			height: (4/@bfz)*1em;
+			margin-top: (2/@bfz)*1em;
+			margin-bottom: (2/@bfz)*1em;
+			border-radius: (3/@bfz)*1em;
+			.ACenter();
+			transform:rotate(0deg);
+			opacity: 1;
+			transition: margin 0.3s .3s ease-in-out, opacity .3s 0s ease-in-out , transform .3s 0s ease-in-out, background .3s .3s ease-in-out ;
+
+			&:first-child{
+				margin-top: 0px;
+				background-color: @red;
+			}
+			&:last-child{
+				margin-bottom: 0px;
+				background-color: @green;
+			}
+			&:nth-child(2n){ 
+				background-color: @dlblue;
+			}
+			
+		}
+		&.active{
+			span{
+				/* background: @yellow; */
+				transform:rotate(45deg);
+				opacity: 0;
+				transition: margin 0.3s ease-in-out, opacity .3s .3s ease-in-out , transform .3s .3s ease-in-out, background .3s .3s ease-in-out ;
+				&:first-child{
+					/* margin-top: 8px; */
+					margin-top:( 8/@bfz)*1em;
+					opacity: 1;
+				}
+				&:last-child{
+					transform:rotate(-45deg);
+					/* margin-bottom: 8px; */
+					margin-bottom:( 8/@bfz)*1em;
+					opacity: 1;
+				}
+			}
+		}
+	}
+} 
+
+@media @desktop-max{
+	.header_logo-mod {
+		width: 83%;
+	}
+}
+
+@media @tablet-max{
+	.header{
+		&_top{
+			&-list{
+				vertical-align: middle;
+				li{
+					width: 49%;
+					text-align: left;
+				}
+			}
+		}
+		&_logo-mod img{
+			padding: (17/@tabfz)*1em 0 ;
+		}
+	}
+}
+
+@media @phone-max{
+	.header{
+
+		position: absolute;
+		&_bcont-btn{
+			width: 58%;
+			display: inline-block;
+			vertical-align: middle;
+			text-align: right;
+		}
+		&_lcont {
+			position: relative;
+		}
+		&_coner {
+			display: none;
+		}
+		&_top{
+			&-list {
+				padding-left: 0;
+				padding-right: 0;
+				&,li
+				{
+					display: block;
+					width: 100%;
+					text-align: center;
+				}
+			}
+
+		}
+		&_tlink{
+			&.mail{
+				margin-left: -(15/@bfz)*1em;
+				margin-right: -(15/@bfz)*1em;
+			}
+		}
+		&_bcont{
+			&-list,&-item{
+				display: block;
+				width: 100%;
+				margin-left: 0;
+				margin-right:0;
+			}
+			&-list{
+				margin-left: -(15/@bfz)*1em;
+				margin-right: -(15/@bfz)*1em;
+				width: auto;
+
+				position: absolute;
+				left: 0;
+				right: 0;
+				background: #fff;
+
+				max-height: 0px;
+				overflow: hidden;
+				transition: max-height .3s;
+				&.active{
+					max-height: 100vh;
+					overflow: auto;
+				}
+			}
+		}
+		&_logo&_logo-mod{
+			width: 40%;
+			display: inline-block;
+			vertical-align: middle;
+
+		}
+		&_lcont{
+			/* position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 3; */
+		}
+	}
+
+}

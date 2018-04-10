@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+	//= template/head.html
+</head>
+<body class="loaded">
+	<!-- BEGIN BODY -->
+	<!-- BEGIN CONTENT -->
+	<div class="main-wrapper ">
+		<main class="content js-padboth">
+
+			<section class="sl-test">
+				<div class="container">
+					<div class="col-xs-12 col-sm-6">
+						<div class="slick_cont" >
+							<div class="slick">
+								<div class="slick_slide">
+									<img src="img/slide.jpg" alt="">
+								</div>
+								<div class="slick_slide">
+									<img src="img/slide.jpg" alt="">
+								</div>
+								<div class="slick_slide">
+									<img src="img/slide.jpg" alt="">
+								</div>
+								<div class="slick_slide">
+									<img src="img/slide.jpg" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>	
+		<!-- CONTENT EOF   -->
+		
+	</div>
+	<!-- BODY EOF   -->
+	<!-- <div class="icon-load"></div> -->
+	<style>
+	.sl-test{
+		padding: 150px 0px;
+	}
+	.slick_slide img{
+		transition: transform .3s;
+		width: 652px;
+
+	}
+	.slick_slide.slick-current img{
+		transform: scale(1.6);
+	}
+	.slick-track{
+		overflow: visible;
+	}
+	.slick-list{
+		margin-left: -150px;
+		margin-right: -150px;
+		/* padding: 0 150px; */
+		padding-left: 150px!important;
+		padding-right: 150px!important;
+		overflow: hidden;
+	}
+</style>
+
+<script type="text/javascript" src="../src/libs/jquery/dist/jquery.min.js" ></script>
+<script type="text/javascript" src="../src/libs/slick-carousel/slick/slick.min.js" ></script>
+<script type="text/javascript" src="../src/libs/slick-carousel/slick/slick.css" ></script>	
+<!-- <script type="text/javascript" src="../src/libs/slick-carousel/slick/slick-theme.css" ></script>	 -->
+<script>
+
+	var 
+	display=1200,tablet=992,phone=768 
+
+	$('.slick').slick({
+		arrows: false,
+		slidesPerRow: 1,
+		slidesToShow: 1,
+		vertical: true,
+		verticalSwiping: true,
+		slidesToScroll: 1,
+		centerMode:true,
+		centerPadding:'60px',
+		responsive: [
+		{
+			breakpoint: display,
+			settings: {
+				centerPadding:'160px',
+			}
+		},
+		{
+			breakpoint: tablet,
+			settings: {
+				centerPadding:'260px',
+			}
+		},
+		{
+			phone: 480,
+			settings: {
+				centerPadding:'360px',
+			}
+		}
+
+		]
+	})
+
+
+
+	$.prototype.rmax = function(){
+		var max = 0
+		$(this).each(function(index, el) {
+			max = $(el).innerHeight() > max? $(el).innerHeight() : max;
+		});
+		return max;
+	}
+	var mresize = function(){
+
+		$('.slick_slide').height('auto');
+		$('.slick_slide').height($('.slick_slide').rmax());
+
+
+	}
+	$(window).bind('resize', mresize);
+
+</script>
+</body>
+</html>

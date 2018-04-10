@@ -1,0 +1,159 @@
+.nap{
+	position: relative;
+	z-index: 2;
+	&_pos{
+		position: relative;
+		top: -(118/@bfz)*1em;
+		z-index: 3;
+	}
+	&_decor{
+		position: absolute;
+		left: 0;
+		top: -(30/@bfz)*1em;
+		bottom: 0;
+		height: auto;
+		display: block;
+		z-index: 0;
+		max-height: 100%;
+		&-1{
+			top: -8em;
+			z-index: 2;
+			left: 6em;
+			
+		}
+	}
+	&_cont{
+		background: @napbg;
+	}
+	&_head, &_footer{
+		background-size: 100% 100%;
+		
+		background-repeat: no-repeat;
+		position: absolute;
+		width: 100%;
+
+	}
+	&_head{
+		height: (188/@bfz)*1em;
+		bottom: 100%;
+		background-image: url(../img/cut/pink_top.png);
+		background-position: bottom;
+		margin-bottom: -(1/@bfz)*1em;
+	}
+	&_footer{
+		height: (83/@bfz)*1em;
+		top: 100%;
+		background-image: url(../img/cut/pink_fot.png);
+		background-position: top;
+		margin-top: -(1/@bfz)*1em;
+	}
+	&_btn{
+		background: transparent;
+		color: @blue;
+		margin-top: (25/@bfz)*1em;
+		&:hover,&.active{
+			background: @blue;
+			color: @napbg;
+		}
+	}
+	&_el{
+		position: relative;
+	}
+	&_img{
+		max-width: 100%;
+		border:(10/@bfz)*1em solid @white;
+		border-radius: (3/@bfz)*1em;
+		overflow: hidden;
+		img{
+
+		}
+	}
+	&_slide{
+		padding: (25/@bfz)*1em 0 ;
+	}
+	&_png{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 10%;
+		margin-top: -4%;
+		margin-bottom: -4%;
+		img{
+			width: auto;
+			height: 100%;
+		}
+	}
+	&_slider{
+		&-cont{
+			display: inline-block;
+			width: 100%;
+			margin-right: -(86/@bfz)*1em;
+			padding-right:(86/@bfz)*1em ;
+			vertical-align: middle;
+
+		}
+		&-dots{
+			display: inline-block;
+
+			width: (80/@bfz)*1em;
+			vertical-align: middle;
+			.slick{
+				&-arrow{
+					position: absolute;
+					left: 0;
+					right: 0;
+					@tfz:20;
+					font-size:(@tfz/@bfz)*1em ;
+					
+					height: (42/@tfz)*1em;
+					max-width: 100%;
+					opacity: .3;
+					transition: opacity .3s;
+					&:hover{
+						opacity: 1;
+					}
+				}
+				&-prev{
+					bottom: 100%;
+				}
+				&-next{
+					top: 100%;
+				}
+			}
+		}
+		.slick-dots{
+			display: none!important;
+		}
+	}
+	&_dotsslider{
+		&-slide{
+			text-align: center;
+			@tfz:56;
+			font-size:(@tfz/@bfz)*1em ;
+			color: @phcolor;
+			.ad;
+			display: inline-block;
+			width: auto;
+			transform: scale(.5);
+			opacity: .3;
+			transition: transform .3s, opacity .3s; 
+			&.slick-current{
+				transform: scale(1);
+				opacity: 1;
+			}
+		}
+	}
+}
+
+
+@media @phone-max{
+	.nap{
+		&_pos{
+			top: 0;
+
+		}
+		&_head,&_footer{
+			background-size: 100%;
+		}
+	}
+}

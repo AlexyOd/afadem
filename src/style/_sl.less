@@ -1,0 +1,76 @@
+.sl{
+	padding: (100/@bfz)*1em 0;
+	padding-bottom: (200/@bfz)*1em;
+	background: @light;
+	&_dec{
+		position: absolute;
+		top: 0;	
+		bottom: 0;	
+		margin: auto;	
+		z-index: 1;
+		&-1{
+			left: 0;	
+		}
+		&-2{
+			right: 0;
+		}
+	}
+	&_cont{
+		position: relative;
+		.container{
+			position: relative;
+			z-index: 2;
+		}
+	}
+	&_el{
+
+		transform: scale(1);
+		transition: transform .3s;
+		position: relative;
+		z-index: 1;
+	}
+	
+	&_h1{
+
+		@tfz:60;
+		font-size:(@tfz/@bfz)*1em ;
+		text-align: center;
+		.ad;
+		letter-spacing: 0.1em;
+		color: @phcolor;
+		&-pink{
+			color: @pink;
+		}
+	}
+	&_text{
+		text-align: center;
+		p{
+			.got;
+			@tfz:14;
+			font-size:(@tfz/@bfz)*1em ;
+			line-height: (24/@tfz);
+		}
+	}
+	&_cont{
+		margin: (50/@bfz)*1em auto;
+	}
+
+}
+
+
+@media @phone-max{
+	.sl{
+
+		padding-top: 0;
+		padding-bottom: (100/@bfz)*1em;
+		&_cont{
+			margin-top: 0;
+		}
+		.row.va-middle{
+			padding-left: 0;
+			display: block;
+			width: auto;
+		}
+	}
+}
+ 

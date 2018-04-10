@@ -1,0 +1,32 @@
+.top{
+	&_slider{
+		&-btn{
+			.ACenter();
+		}
+	}
+	&_dots{
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: (50/@bfz)*1em;
+
+	}
+	.slick{
+		&-dots{
+			margin:0;
+		}
+	}
+	&_slide img{
+		width: 100%;
+	}
+}
+
+@media @phone-max{
+	.top{
+		&_dots{
+			
+			bottom: 0;
+			z-index: 2;
+		}
+	}
+}

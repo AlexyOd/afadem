@@ -1,0 +1,32 @@
+.bred{
+	padding: (10/@bfz)*1em 0;
+	margin: 0;
+	li{
+		display: inline-block;
+		vertical-align: middle;
+		&:after{
+			content: '/';
+
+		}
+		&:last-child{
+			&:after{
+				display: none;
+			}
+		}
+
+		p,a{
+			display: inline-block;
+			@tfz:12;
+			font-size:(@tfz/@bfz)*1em ;
+			line-height: 1.2;
+			.got;
+			margin: 0;
+		}
+		a{
+			color: @tcolor;
+		}
+		p{
+			color: @blue;
+		}
+	}
+}

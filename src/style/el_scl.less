@@ -1,0 +1,33 @@
+.scl{
+	padding: 0;
+	margin: 0;
+	display: inline-block;
+	vertical-align: middle;
+	cursor: default;
+	&_link{
+		
+		font-size: (18.2/@bfz)*1em;
+		color: @white;
+		border-bottom: (1/@bfz)*1em solid transparent;
+		transition: border-color .3s;
+		&:hover{
+			color: @white;
+			border-bottom: (1/@bfz)*1em solid @white;
+		}
+	}
+	&_item{
+		padding: 0 (5/@bfz)*1em;
+		cursor: default;
+		display: inline-block;
+		vertical-align: middle;
+		margin: (3/@bfz)*1em 0;
+	}
+}
+
+@media @phone-max{
+	.scl{
+		width: 100%;
+		text-align: center;
+		padding-bottom: (20/@bfz)*1em;
+	}
+}
