@@ -3,6 +3,19 @@
 	position: relative;
 	z-index: 2;
 	padding-bottom: 	(20/@bfz)*1em;
+	&_dec{
+		position: absolute;
+		&-1{
+			left: (60/@bfz)*1em;
+			top:(30/@bfz)*1em;
+		}
+		&-2{
+			right: 	(60/@bfz)*1em;
+			top: 0;	
+			bottom: 0;	
+			margin: auto;	
+		}
+	}
 	&_cont{
 		background: @light;
 	}
@@ -92,6 +105,7 @@
 	}
 	&_single{
 		background: @light;
+		position: relative;	
 	}
 	&_single &{
 		&_name
